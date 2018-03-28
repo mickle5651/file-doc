@@ -1,0 +1,40 @@
+1,资源池接口：
+10.20.50.17 10000
+nginx 7000
+redis 6379 db0 zhckpt
+
+2,平台一键搜索临时版本
+10.20.50.18 7772
+10.20.50.19 7772
+
+3,公安网前置nginx统一入口：
+10.20.50.2:9092
+
+节点：
+10.20.50.10:9092
+10.20.50.11:9092
+10.20.50.12:9092
+10.20.50.13:9092
+
+mongo 停机顺序：
+1,mongos 
+10.20.50.142/143/144
+mongo --port 29017
+use admin
+db.shutdownServer()
+
+2.confsrv
+10.20.50.142/143/144
+mongo --port 28017
+use admin
+db.shutdownServer()
+
+3,mongod
+10.20.50.140/141/142/143/144/145/170/171/172
+mongo --port 27017
+use admin 
+db.shutdownServer()
+
+mongo --host 10.20.50.144 --port 27017
+
+
